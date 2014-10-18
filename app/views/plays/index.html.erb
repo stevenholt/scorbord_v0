@@ -1,0 +1,53 @@
+<h1>Listing plays</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Drive</th>
+      <th>Number</th>
+      <th>Down</th>
+      <th>Distance</th>
+      <th>Hashmark</th>
+      <th>Los</th>
+      <th>Formation</th>
+      <th>Playcall</th>
+      <th>Rusher</th>
+      <th>Passer</th>
+      <th>Receiver</th>
+      <th>Result</th>
+      <th>Deltayards</th>
+      <th>Comments</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @plays.each do |play| %>
+      <tr>
+        <td><%= play.drive_id %></td>
+        <td><%= play.number %></td>
+        <td><%= play.down %></td>
+        <td><%= play.distance %></td>
+        <td><%= play.hashmark %></td>
+        <td><%= play.los %></td>
+        <td><%= play.formation %></td>
+        <td><%= play.playcall %></td>
+        <td><%= play.rusher %></td>
+        <td><%= play.passer %></td>
+        <td><%= play.receiver %></td>
+        <td><%= play.result %></td>
+        <td><%= play.deltayards %></td>
+        <td><%= play.comments %></td>
+        <td><%= link_to 'Show', play %></td>
+        <td><%= link_to 'Edit', edit_play_path(play) %></td>
+        <td><%= link_to 'Destroy', play, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Play', new_play_path %>

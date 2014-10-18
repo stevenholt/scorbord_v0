@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  down: 1
+  distance: 1
+  hashmark: MyString
+  los: 1
+  formation: MyString
+  playcall: MyString
+  rusher: 1
+  passer: 1
+  receiver: 1
+  result: MyString
+  deltayards: 1
+  comments: MyString
+
+two:
+  number: 1
+  down: 1
+  distance: 1
+  hashmark: MyString
+  los: 1
+  formation: MyString
+  playcall: MyString
+  rusher: 1
+  passer: 1
+  receiver: 1
+  result: MyString
+  deltayards: 1
+  comments: MyString

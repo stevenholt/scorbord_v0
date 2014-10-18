@@ -1,0 +1,33 @@
+<h1>Listing drives</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>Possession</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @drives.each do |drive| %>
+      <tr>
+        <td><%= drive.game_id %></td>
+        <td><%= drive.possession %></td>
+        <td><%= drive.start_time %></td>
+        <td><%= drive.end_time %></td>
+        <td><%= link_to 'Show', drive %></td>
+        <td><%= link_to 'Edit', edit_drive_path(drive) %></td>
+        <td><%= link_to 'Destroy', drive, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Drive', new_drive_path %>

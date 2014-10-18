@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @drive.game_id %>
+</p>
+
+<p>
+  <strong>Possession:</strong>
+  <%= @drive.possession %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @drive.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @drive.end_time %>
+</p>
+
+<%= link_to 'Edit', edit_drive_path(@drive) %> |
+<%= link_to 'Back', drives_path %>

@@ -1,0 +1,33 @@
+<%= form_for(@drive) do |f| %>
+  <% if @drive.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@drive.errors.count, "error") %> prohibited this drive from being saved:</h2>
+
+      <ul>
+      <% @drive.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :game_id %><br>
+    <%= f.number_field :game_id %>
+  </div>
+  <div class="field">
+    <%= f.label :possession %><br>
+    <%= f.number_field :possession %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br>
+    <%= f.number_field :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br>
+    <%= f.number_field :end_time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

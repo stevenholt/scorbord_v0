@@ -1,0 +1,73 @@
+<%= form_for(@play) do |f| %>
+  <% if @play.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@play.errors.count, "error") %> prohibited this play from being saved:</h2>
+
+      <ul>
+      <% @play.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :drive_id %><br>
+    <%= f.number_field :drive_id %>
+  </div>
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.number_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :down %><br>
+    <%= f.number_field :down %>
+  </div>
+  <div class="field">
+    <%= f.label :distance %><br>
+    <%= f.number_field :distance %>
+  </div>
+  <div class="field">
+    <%= f.label :hashmark %><br>
+    <%= f.text_field :hashmark %>
+  </div>
+  <div class="field">
+    <%= f.label :los %><br>
+    <%= f.number_field :los %>
+  </div>
+  <div class="field">
+    <%= f.label :formation %><br>
+    <%= f.text_field :formation %>
+  </div>
+  <div class="field">
+    <%= f.label :playcall %><br>
+    <%= f.text_field :playcall %>
+  </div>
+  <div class="field">
+    <%= f.label :rusher %><br>
+    <%= f.number_field :rusher %>
+  </div>
+  <div class="field">
+    <%= f.label :passer %><br>
+    <%= f.number_field :passer %>
+  </div>
+  <div class="field">
+    <%= f.label :receiver %><br>
+    <%= f.number_field :receiver %>
+  </div>
+  <div class="field">
+    <%= f.label :result %><br>
+    <%= f.text_field :result %>
+  </div>
+  <div class="field">
+    <%= f.label :deltayards %><br>
+    <%= f.number_field :deltayards %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br>
+    <%= f.text_field :comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
