@@ -1,5 +1,7 @@
 ScorbordV0::Application.routes.draw do
   
+  resources :games
+
   resources :team_memberships
 
   resources :people

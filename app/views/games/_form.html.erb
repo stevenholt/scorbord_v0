@@ -1,0 +1,10 @@
+<%= simple_form_for(@game, html: {class: 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :date,		label: "Date" %>
+    <%= f.input :home_team,	label: "Home Team" %>
+    <%= f.input :away_team,	label: "Away Team" %>
+  	<%= f.button :submit %>
+  </div>
+<% end %>

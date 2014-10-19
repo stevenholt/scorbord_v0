@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @game.date %>
+</p>
+
+<p>
+  <strong>Home team:</strong>
+  <%= @game.home_team.name %>
+</p>
+
+<p>
+  <strong>Away team:</strong>
+  <%= @game.away_team.name %>
+</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Possession</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @game.drives.each do |drive| %>
+      <tr>
+        <td><%= drive.id %></td>
+        <td><%= drive.team.name %></td>
+        <td><%= drive.start_time %></td>
+        <td><%= drive.end_time %></td>
+        <td>
+            <%= link_to 'show', drive, class:"btn" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
