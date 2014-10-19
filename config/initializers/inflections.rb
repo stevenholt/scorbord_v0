@@ -17,4 +17,6 @@
 
 ActiveSupport::Inflector.inflections do |inflect|
 	inflect.irregular 'drive', 'drives'
+	inflect.irregular 'team_membership', 'team_memberships'
+	inflect.irregular 'teammembership', 'teammemberships'
 end

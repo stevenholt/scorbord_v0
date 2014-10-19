@@ -1,0 +1,37 @@
+<h1>All Memberships</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Person</th>
+      <th>Jersey #</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @team_memberships.each do |team_membership| %>
+      <tr>
+        <td><%= link_to team_membership.team.name, team_path(team_membership.team_id) %></td>
+        <td>
+            <%= link_to person_path(team_membership.person_id) do %>
+              <%= team_membership.person.last_name %>, <%= team_membership.person.first_name %>
+            <% end %>
+          </td>
+        <td><%= team_membership.jersey_num %></td>
+        <td>
+          <div class="btn-group">
+            <%= link_to 'Show', team_membership, class:"btn" %>
+            <%= link_to 'Edit', edit_team_membership_path(team_membership), class:"btn" %>
+            <%= link_to 'Destroy', team_membership, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn" %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Membership', new_team_membership_path, class:"btn btn-success" %>

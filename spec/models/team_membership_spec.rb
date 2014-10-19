@@ -1,16 +1,17 @@
 # == Schema Information
 #
-# Table name: people
+# Table name: team_memberships
 #
 #  id         :integer          not null, primary key
-#  first_name :string(255)
-#  last_name  :string(255)
+#  team_id    :integer
+#  person_id  :integer
+#  jersey_num :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 require 'spec_helper'
 
-describe Person do
+describe TeamMembership do
   pending "add some examples to (or delete) #{__FILE__}"
 end

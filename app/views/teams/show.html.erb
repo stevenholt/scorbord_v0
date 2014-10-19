@@ -1,19 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @team.name %>
-</p>
+<h2><%= @team.name %> (<%= @team.city %>, <%= @team.state %>) <%= link_to 'Edit', edit_team_path(@team), class:"btn" %></h2>
 
-<p>
-  <strong>City:</strong>
-  <%= @team.city %>
-</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Last Name</th>
+      <th>First Name</th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>State:</strong>
-  <%= @team.state %>
-</p>
+  <tbody>
+    <% @team.team_memberships.each do |member| %>
+      <tr>
+        <td><%= member.jersey_num %></td>
+        <td><%= member.person.last_name %></td>
+        <td><%= member.person.first_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
+
 <%= link_to 'Back', teams_path %>
