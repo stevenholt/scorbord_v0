@@ -1,5 +1,15 @@
+# == Schema Information
+#
+# Table name: games
+#
+#  id         :integer          not null, primary key
+#  date       :date
+#  home_team  :integer
+#  away_team  :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Game < ActiveRecord::Base
-	belongs_to :home_team, :class_name => 'Team', :foreign_key => 'home_team'
-	belongs_to :away_team, :class_name => 'Team', :foreign_key => 'away_team'
 	has_many :drives
 end

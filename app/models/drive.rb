@@ -13,6 +13,5 @@
 
 class Drive < ActiveRecord::Base
 	belongs_to 	:game
-	belongs_to	:team, :foreign_key => 'possession'
 	has_many 	:plays
 end

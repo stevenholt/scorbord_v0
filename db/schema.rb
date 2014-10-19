@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019152918) do
+ActiveRecord::Schema.define(version: 20141019182502) do
 
   create_table "drives", force: true do |t|
     t.integer  "game_id"
@@ -54,6 +54,15 @@ ActiveRecord::Schema.define(version: 20141019152918) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "drive_id"
+  end
+
+  create_table "team_games", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "game_id"
+    t.boolean  "home_team"
+    t.boolean  "away_team"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "team_memberships", force: true do |t|
