@@ -1,14 +1,12 @@
-<h1>Listing drives</h1>
+<h1>All Drives</h1>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Game</th>
       <th>Possession</th>
-      <th>Start time</th>
-      <th>End time</th>
-      <th></th>
-      <th></th>
+      <th>Start Time</th>
+      <th>End Time</th>
       <th></th>
     </tr>
   </thead>
@@ -20,9 +18,9 @@
         <td><%= drive.possession %></td>
         <td><%= drive.start_time %></td>
         <td><%= drive.end_time %></td>
-        <td><%= link_to 'Show', drive %></td>
-        <td><%= link_to 'Edit', edit_drive_path(drive) %></td>
-        <td><%= link_to 'Destroy', drive, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', drive, class: "btn btn-primary btn-lg" %>
+            <%= link_to 'Edit', edit_drive_path(drive), class: "btn btn-info btn-xs" %>
+            <%= link_to 'Destroy', drive, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-xs" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Drive', new_drive_path %>
+<%= link_to 'New Drive', new_drive_path, class: "btn btn-success btn-lg" %>

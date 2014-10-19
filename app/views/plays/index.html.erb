@@ -1,48 +1,51 @@
-<h1>Listing plays</h1>
+<h1>All Plays</h1>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Drive</th>
-      <th>Number</th>
-      <th>Down</th>
-      <th>Distance</th>
-      <th>Hashmark</th>
-      <th>Los</th>
+      <th>#</th>
+      <th>DN</th>
+      <th>DIST</th>
+      <th>HASH</th>
+      <th>LOS</th>
       <th>Formation</th>
       <th>Playcall</th>
       <th>Rusher</th>
       <th>Passer</th>
       <th>Receiver</th>
       <th>Result</th>
-      <th>Deltayards</th>
+      <th>Yards</th>
       <th>Comments</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @plays.each do |play| %>
       <tr>
-        <td><%= play.drive_id %></td>
-        <td><%= play.number %></td>
-        <td><%= play.down %></td>
-        <td><%= play.distance %></td>
-        <td><%= play.hashmark %></td>
-        <td><%= play.los %></td>
+        <td style="text-align:center;"><%= play.drive_id %></td>
+        <td style="text-align:center;"><%= play.number %></td>
+        <td style="text-align:center;"><%= play.down %></td>
+        <td style="text-align:center;"><%= play.distance %></td>
+        <td style="text-align:center;"><%= play.hashmark %></td>
+        <td style="text-align:center;"><%= play.los %></td>
         <td><%= play.formation %></td>
         <td><%= play.playcall %></td>
-        <td><%= play.rusher %></td>
-        <td><%= play.passer %></td>
-        <td><%= play.receiver %></td>
+        <td style="text-align:center;"><%= play.rusher %></td>
+        <td style="text-align:center;"><%= play.passer %></td>
+        <td style="text-align:center;"><%= play.receiver %></td>
         <td><%= play.result %></td>
-        <td><%= play.deltayards %></td>
+        <td style="text-align:center;"><%= play.deltayards %></td>
         <td><%= play.comments %></td>
-        <td><%= link_to 'Show', play %></td>
-        <td><%= link_to 'Edit', edit_play_path(play) %></td>
-        <td><%= link_to 'Destroy', play, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <tr>
+        <td colspan="2"></td>
+        <td colspan="5">
+          <%= link_to 'Show', play, class: "btn btn-primary" %>
+          <%= link_to 'Edit', edit_play_path(play), class: "btn btn-info" %>
+          <%= link_to 'Destroy', play, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+        </td>
+        <td colspan="7"></td>
       </tr>
     <% end %>
   </tbody>
