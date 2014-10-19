@@ -122,6 +122,9 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    simple_form (3.0.2)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -165,6 +168,7 @@ DEPENDENCIES
   rspec-rails (= 2.11.0)
   sass-rails (~> 4.0.3)
   sdoc (= 0.3.20)
+  simple_form
   sqlite3 (= 1.3.8)
   turbolinks (= 1.1.1)
   uglifier (= 2.1.1)

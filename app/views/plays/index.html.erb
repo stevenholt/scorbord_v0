@@ -1,32 +1,33 @@
 <h1>All Plays</h1>
 
+  <%= link_to 'New Play', new_play_path, class:"btn btn-success" %>
+
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Drive</th>
       <th>#</th>
-      <th>DN</th>
-      <th>DIST</th>
+      <th>D/DIST</th>
       <th>HASH</th>
       <th>LOS</th>
       <th>Formation</th>
-      <th>Playcall</th>
+      <th>Play</th>
       <th>Rusher</th>
       <th>Passer</th>
       <th>Receiver</th>
       <th>Result</th>
       <th>Yards</th>
-      <th>Comments</th>
+      <!--<th>Comments</th>-->
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @plays.each do |play| %>
       <tr>
-        <td style="text-align:center;"><%= play.drive_id %></td>
-        <td style="text-align:center;"><%= play.number %></td>
-        <td style="text-align:center;"><%= play.down %></td>
-        <td style="text-align:center;"><%= play.distance %></td>
+        <td style="text-align:center;"><%= play.drive_id %> - <%= play.number %></td>
+        <td style="text-align:center;"><%= play.down %> & <%= play.distance %></td>
         <td style="text-align:center;"><%= play.hashmark %></td>
         <td style="text-align:center;"><%= play.los %></td>
         <td><%= play.formation %></td>
@@ -36,16 +37,19 @@
         <td style="text-align:center;"><%= play.receiver %></td>
         <td><%= play.result %></td>
         <td style="text-align:center;"><%= play.deltayards %></td>
-        <td><%= play.comments %></td>
+        <td colspan="3">
+          <div class="btn-group btn-group-xs">
+            <%= link_to 'view', play, class:"btn btn-default btn-xs" %>
+            <%= link_to 'edit', edit_play_path(play), class:"btn btn-default btn-xs" %>
+            <%= link_to 'delete', play, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default btn-xs" %>
+          </div>
+        </td>
       </tr>
       <tr>
-        <td colspan="2"></td>
-        <td colspan="5">
-          <%= link_to 'Show', play, class: "btn btn-primary" %>
-          <%= link_to 'Edit', edit_play_path(play), class: "btn btn-info" %>
-          <%= link_to 'Destroy', play, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+        <td colspan="2"/>
+        <td colspan="12">
+          <small><%= play.comments if play.comments %></small>
         </td>
-        <td colspan="7"></td>
       </tr>
     <% end %>
   </tbody>
@@ -53,4 +57,4 @@
 
 <br>
 
-<%= link_to 'New Play', new_play_path %>
+<%= link_to 'New Play', new_play_path, class:"btn btn-success" %>
