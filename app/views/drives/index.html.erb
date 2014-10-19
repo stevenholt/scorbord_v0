@@ -3,10 +3,12 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Drive ID</th>
       <th>Game</th>
-      <th>Possession</th>
+      <th>Pos(team)</th>
       <th>Start Time</th>
       <th>End Time</th>
+      <th>Plays</th>
       <th></th>
     </tr>
   </thead>
@@ -14,10 +16,12 @@
   <tbody>
     <% @drives.each do |drive| %>
       <tr>
+        <td><%= drive.id %></td>
         <td><%= drive.game_id %></td>
         <td><%= drive.possession %></td>
         <td><%= drive.start_time %></td>
         <td><%= drive.end_time %></td>
+        <td><%= drive.plays.count %></td>
         <td colspan="3">
           <div class="btn-group">
             <%= link_to 'Show', drive, class: "btn btn-default btn-lg" %>

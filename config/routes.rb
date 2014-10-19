@@ -2,7 +2,11 @@ ScorbordV0::Application.routes.draw do
   
   resources :team_games
 
-  resources :games
+  resources :games do
+    resources :drives do
+      resources :plays
+    end
+  end
 
   resources :team_memberships
 
@@ -10,7 +14,9 @@ ScorbordV0::Application.routes.draw do
 
   resources :teams
 
-  resources :drives
+  resources :drives do
+    resources :plays
+  end
 
   resources :plays
 

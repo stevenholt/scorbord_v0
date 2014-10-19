@@ -25,7 +25,7 @@
 </p>
 
 <br><br><br><br>
-<h3>Plays in this Drive</h3>
+<h3>Plays in Drive #<%= @drive.id %></h3>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -63,7 +63,7 @@
         <td style="text-align:center;"><%= play.deltayards %></td>
         <td colspan="3">
           <div class="btn-group btn-group-xs">
-            <%= link_to 'view', play, class:"btn btn-default btn-xs" %>
+            <%= link_to 'view', game_drive_play_path(@drive.game_id, @drive, play), class:"btn btn-default btn-xs" %>
             <%= link_to 'edit', edit_play_path(play), class:"btn btn-default btn-xs" %>
             <%= link_to 'delete', play, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default btn-xs" %>
           </div>
