@@ -24,6 +24,7 @@
   <%= @drive.plays.count %>
 </p>
 
+
 <br><br><br><br>
 <h3>Plays in Drive #<%= @drive.id %></h3>
 <table class="table table-striped">
@@ -79,5 +80,6 @@
   </tbody>
 </table>
 
+<%= link_to 'New Play', new_play_path %>
 <%= link_to 'Edit', edit_drive_path(@drive) %> |
 <%= link_to 'Back', drives_path %>
