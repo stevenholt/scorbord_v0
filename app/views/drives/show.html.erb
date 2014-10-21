@@ -23,6 +23,10 @@
   <strong># of Plays:</strong>
   <%= @drive.plays.count %>
 </p>
+<p>
+  <strong>Total Yards:</strong>
+  <%= (Play.where('drive_id = ?', @drive.id )).sum("deltayards") %>
+</p>
 
 
 <br><br><br><br>
