@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%= @team.name %> (<%= @team.city %>, <%= @team.state %>) <%= link_to 'Edit', edit_team_path(@team), class:"btn" %></h2>
+<h2>TEAM: <%= @team.name %> (<%= @team.city %>, <%= @team.state %>) <%= link_to 'Edit', edit_team_path(@team), class:"btn" %></h2>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>#</th>
-      <th>Last Name</th>
-      <th>First Name</th>
+      <th>Name</th>
     </tr>
   </thead>
 
@@ -15,8 +14,37 @@
     <% @team.team_memberships.each do |member| %>
       <tr>
         <td><%= member.jersey_num %></td>
-        <td><%= member.person.last_name %></td>
-        <td><%= member.person.first_name %></td>
+        <td><%= link_to person_path(member.person_id) do %>
+              <%= member.person.last_name %>, <%= member.person.first_name %>
+            <% end %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>GameID</th>
+      <th>DriveID</th>
+      <th>PlayNum</th>
+      <th>D/DIST</th>
+      <th>Hash</th>
+      <th>LOS</th>
+      <th>Formation</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @team.plays.each do |play| %>
+      <tr>
+        <td><%= play.drive.game.id %></td>
+        <td><%= play.drive.id %></td>
+        <td><%= play.id %></td>
+        <td><%= play.down %> - <%= play.distance %></td>
+        <td><%= play.hashmark %></td>
+        <td><%= play.los %></td>
+        <td><%= play.formation %></td>
       </tr>
     <% end %>
   </tbody>

@@ -14,4 +14,5 @@
 class Drive < ActiveRecord::Base
 	belongs_to 	:game
 	has_many 	:plays
+	belongs_to	:team
 end

@@ -69,6 +69,6 @@ class DrivesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def drive_params
-      params.require(:drive).permit(:game_id, :possession, :start_time, :end_time)
+      params.require(:drive).permit(:game_id, :team_id, :start_time, :end_time)
     end
 end

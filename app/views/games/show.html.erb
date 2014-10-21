@@ -7,12 +7,12 @@
 
 <p>
   <strong>Home team:</strong>
-  <%= @game.home_team %>
+  <%= link_to @game.home_team.name, team_path(@game.home_team.id) %>
 </p>
 
 <p>
   <strong>Away team:</strong>
-  <%= @game.away_team %>
+  <%= link_to @game.away_team.name, team_path(@game.away_team.id) %>
 </p>
 <br><br><br><br>
 <h3>Drives in Game #<%= @game.id %></h3>
@@ -31,7 +31,7 @@
     <% @game.drives.each do |drive| %>
       <tr>
         <td><%= drive.id %></td>
-        <td><%= drive.possession %></td>
+        <td><%= drive.team_id %></td>
         <td><%= drive.start_time %></td>
         <td><%= drive.end_time %></td>
         <td>

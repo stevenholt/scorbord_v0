@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141019182502) do
+ActiveRecord::Schema.define(version: 20141020235850) do
 
   create_table "drives", force: true do |t|
     t.integer  "game_id"
-    t.integer  "possession"
+    t.integer  "team_id"
     t.integer  "start_time"
     t.integer  "end_time"
     t.datetime "created_at"
@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20141019182502) do
 
   create_table "games", force: true do |t|
     t.date     "date"
-    t.integer  "home_team"
-    t.integer  "away_team"
+    t.integer  "home_team_id"
+    t.integer  "away_team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

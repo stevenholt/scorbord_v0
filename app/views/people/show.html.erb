@@ -9,6 +9,30 @@
   <strong>Last name:</strong>
   <%= @person.last_name %>
 </p>
+<br><br><br><br>
+<h4><%= @person.first_name %> <%= @person.last_name %>'s Teams</h1>
+<table class="table table-striped">
+	<thead>
+		<th>Team Name</th>
+		<th></th>
+	</thead>
+	<tbody>
+		<% @person.team_memberships.each do |mem| %>
+		<tr>
+			<td>
+				<%= mem.team.name %>
+			</td>
+			<td>
+				<%= mem.team.city %>, <%= mem.team.state %>
+			</td>
+			<td>
+				#<%= mem.jersey_num %>
+			</td>
+		</tr>
+		<% end %>
 
+
+	</tbody>
+</table>
 <%= link_to 'Edit', edit_person_path(@person) %> |
 <%= link_to 'Back', people_path %>
