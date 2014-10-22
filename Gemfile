@@ -7,6 +7,7 @@ gem 'rails', '4.0.8'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'simple_form'
+gem 'newrelic_rpm'
 
 group :development do
 	# Use sqlite3 as the database for Active Record
