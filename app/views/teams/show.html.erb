@@ -2,27 +2,8 @@
 
 <h1>TEAM: <%= @team.name %> (<%= @team.city %>, <%= @team.state %>)</h1> <%= link_to 'Edit Team', edit_team_path(@team) %>
 <br><br><br><br>
-Link to Roster <%= link_to 'Roster', team_team_memberships_path(@team) %>
-<br><br><br><br>
-<h3>Roster</h3>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @team.team_memberships.each do |member| %>
-      <tr>
-        <td><%= member.jersey_num %></td>
-        <td><%= link_to person_path(member.person_id) do %>
-              <%= member.person.last_name %>, <%= member.person.first_name %>
-            <% end %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= link_to 'Team Roster', team_team_memberships_path(@team), class:"btn btn-info" %>
+
 <br><br><br><br>
 <h3>Games <%= @team.home_games.count %></h3>
 <table class="table table-striped">
