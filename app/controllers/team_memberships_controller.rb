@@ -4,12 +4,16 @@ class TeamMembershipsController < ApplicationController
   # GET /team_memberships
   # GET /team_memberships.json
   def index
-    @team_memberships = TeamMembership.all
+    @team_id = params[:team_id]
+    @team_memberships = TeamMembership.where(" team_id = ? ", @team_id)
+    @thisteam = Team.find( params[:team_id] )
+    # @team_memberships = TeamMembership.all
   end
 
   # GET /team_memberships/1
   # GET /team_memberships/1.json
   def show
+
   end
 
   # GET /team_memberships/new

@@ -12,7 +12,9 @@ ScorbordV0::Application.routes.draw do
 
   resources :people
 
-  resources :teams
+  resources :teams do
+    resources :team_memberships
+  end
 
   resources :drives do
     resources :plays
