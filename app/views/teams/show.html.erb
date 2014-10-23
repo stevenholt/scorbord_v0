@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>TEAM: <%= @team.name %> (<%= @team.city %>, <%= @team.state %>)</h1> <%= link_to 'Edit Team', edit_team_path(@team) %>
+<h1><%= @team.name %> (<%= @team.city %>, <%= @team.state %>)</h1> <%= link_to 'Edit Team', edit_team_path(@team), class:"btn" %>
 <br><br><br><br>
-<%= link_to 'Team Roster', team_team_memberships_path(@team), class:"btn btn-info" %>
+<%= link_to 'View Roster', team_team_memberships_path(@team), class:"btn btn-info" %>
 
 <br><br><br><br>
 <h3>Games <%= @team.home_games.count %></h3>
