@@ -64,7 +64,7 @@ class TeamMembershipsController < ApplicationController
     @team = Team.find( @team_membership.team_id )
     @team_membership.destroy
     respond_to do |format|
-      format.html { redirect_to team_team_memberships_path(@team) }
+      format.html { redirect_to team_team_memberships_path(@team), notice: 'Player successfully dismissed' }
       format.json { head :no_content }
     end
   end
