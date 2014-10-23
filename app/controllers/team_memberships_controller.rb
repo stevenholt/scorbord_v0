@@ -10,6 +10,7 @@ class TeamMembershipsController < ApplicationController
   def roster
     @team = Team.find( params[:team_id] )
     @team_memberships = TeamMembership.where(" team_id = ? ", @team.id)
+    render 'roster'
     # @team_memberships = TeamMembership.all
   end
   # GET /team_memberships/1
@@ -60,10 +61,10 @@ class TeamMembershipsController < ApplicationController
   # DELETE /team_memberships/1
   # DELETE /team_memberships/1.json
   def destroy
-
+    @team = Team.find( @team_membership.team_id )
     @team_membership.destroy
     respond_to do |format|
-      format.html { redirect_to team_memberships_url }
+      format.html { redirect_to team_team_memberships_path(@team) }
       format.json { head :no_content }
     end
   end
