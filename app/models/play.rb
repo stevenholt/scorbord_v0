@@ -23,4 +23,5 @@
 
 class Play < ActiveRecord::Base
 	belongs_to :drive
+	belongs_to :game
 end

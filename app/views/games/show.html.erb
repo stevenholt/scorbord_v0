@@ -15,6 +15,58 @@
   <%= link_to @game.away_team.name, team_path(@game.away_team.id) %>
 </p>
 <br><br><br><br>
+Game Summary
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>1st Downs</th>
+            <th>Total Yards</th>
+            <th>Passing</th>
+            <th>Rushing</th>
+            <th>Penalties</th>
+            <th>3rd Down Conv.</th>
+            <th>4th Down Conv.</th>
+            <th>Turnovers</th>
+            <th>Possession</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><%= (@game.plays.where("result = '1st Down'")).count %></td>
+          <td><%= @game.plays.sum("deltayards") %></td>
+          <td><%= (@game.plays.where('passer > -1')).sum("deltayards") %></td>
+          <td><%= (@game.plays.where('rusher > -1')).sum("deltayards") %></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+    </tbody>
+</table>  
+<br><br><br><br>
+<h3>Hot Plays</h3>
+<table class="table table-striped">
+  <thead>
+      <tr>
+        <th>Formation</th>
+        <th>Playcall</th>
+        <th>Yards</th>
+        <th>D/Dist</th>
+      </tr>
+  </thead>
+  <tbody>
+      <% ((@game.plays.order(deltayards: :desc)).limit(5)).each do |play|%>
+      <tr>
+        <td><%= link_to play.formation, play_path(play) %></td>
+        <td><%= play.playcall %></td>
+        <td><%= play.deltayards %></td>
+        <td><%= play.down %> & <%= play.distance %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+<br><br><br><br>
 <h3>Drives in Game #<%= @game.id %></h3>
 <table class="table table-striped">
   <thead>
