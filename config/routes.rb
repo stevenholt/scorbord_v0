@@ -1,5 +1,5 @@
 ScorbordV0::Application.routes.draw do
-  
+
   resources :team_games
 
   resources :games do
@@ -13,7 +13,7 @@ ScorbordV0::Application.routes.draw do
   resources :people
 
   resources :teams do
-    resources :team_memberships
+    resources :team_memberships, :path => "roster"
   end
 
   resources :drives do

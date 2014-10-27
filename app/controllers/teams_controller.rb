@@ -12,6 +12,11 @@ class TeamsController < ApplicationController
   def show
   end
 
+  def roster
+    @team = Team.find( params[:team_id] )
+    render team_team_memberships_path(@team)
+  end
+
   # GET /teams/new
   def new
     @team = Team.new

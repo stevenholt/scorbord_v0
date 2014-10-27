@@ -4,7 +4,12 @@ class TeamMembershipsController < ApplicationController
   # GET /team_memberships
   # GET /team_memberships.json
   def index
-    @team_memberships = TeamMembership.all
+    if :team_id?
+      @team = Team.find( params[:team_id] )
+      @team_memberships = TeamMembership.where(" team_id = ? ", @team.id)
+    else
+      @team_memberships = TeamMembership.all
+    end
   end
 
   def roster
