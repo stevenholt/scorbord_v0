@@ -27,6 +27,7 @@ class TeamMembershipsController < ApplicationController
   # GET /team_memberships/new
   def new
     @team_membership = TeamMembership.new
+    @team = Team.find( params[:team_id] )
   end
 
   # GET /team_memberships/1/edit
@@ -40,7 +41,7 @@ class TeamMembershipsController < ApplicationController
 
     respond_to do |format|
       if @team_membership.save
-        format.html { redirect_to @team_membership, notice: 'Team membership was successfully created.' }
+        format.html { redirect_to team_team_memberships_path(@team_membership.team_id), notice: 'Team membership was successfully created.' }
         format.json { render action: 'show', status: :created, location: @team_membership }
       else
         format.html { render action: 'new' }

@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>All Team Memberships</h1>
+<h1><%= @team.name %> Roster</h1>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Jersey #</th>
-      <th>Team</th>
+      <th>Player</th>
       <th></th>
     </tr>
   </thead>
@@ -33,4 +33,4 @@
 
 <br>
 
-<%= link_to 'Add a Team Membership', new_team_membership_path, class:"btn btn-success" %>
+<%= link_to 'Add a Team Membership', new_team_team_membership_path, class:"btn btn-success" %>
