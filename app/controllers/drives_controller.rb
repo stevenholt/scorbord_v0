@@ -15,6 +15,7 @@ class DrivesController < ApplicationController
   # GET /drives/new
   def new
     @drive = Drive.new
+    @game = Team.find( params[:game_id] )
   end
 
   # GET /drives/1/edit

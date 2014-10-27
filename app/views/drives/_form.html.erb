@@ -1,7 +1,7 @@
 <%= simple_form_for(@drive, html: {class: 'form-horizontal'}) do |f| %>
   <%= f.error_notification %>
 
-  <%= f.input  :game_id,       label: 'Game ID' %>
+  <%= f.input  :game_id,       input_html: { value: @game.id } %>
   <%= f.input  :team_id, label: 'Possession' %>
   <%= f.input  :start_time,    label: 'Start Time' %>
   <%= f.input  :end_time,      label: 'End Time' %>
