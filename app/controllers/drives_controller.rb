@@ -10,6 +10,8 @@ class DrivesController < ApplicationController
   # GET /drives/1
   # GET /drives/1.json
   def show
+    # redirect_to game_drives_path( params[:drive_id] )
+    # @game = Game.find( params[:game_id] )
   end
 
   # GET /drives/new
@@ -29,7 +31,7 @@ class DrivesController < ApplicationController
 
     respond_to do |format|
       if @drive.save
-        format.html { redirect_to @drive, notice: 'Drive was successfully created.' }
+        format.html { redirect_to game_drive_path(@drive.game_id, @drive), notice: 'Drive was successfully created.' }
         format.json { render action: 'show', status: :created, location: @drive }
       else
         format.html { render action: 'new' }

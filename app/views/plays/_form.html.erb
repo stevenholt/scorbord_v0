@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <%= f.input :drive_id,    label: 'Drive ID' %>
+  <%= f.input :drive_id,    :as => :hidden, input_html: { value: @drive.id } %>
   <%= f.input :number,      label: 'Number' %>
   <%= f.input :down,        label: 'Down' %>
   <%= f.input :distance,    label: 'Distance' %>

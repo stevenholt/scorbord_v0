@@ -15,6 +15,7 @@ class PlaysController < ApplicationController
   # GET /plays/new
   def new
     @play = Play.new
+    @drive = Drive.find( params[:drive_id] )
   end
 
   # GET /plays/1/edit
@@ -28,7 +29,7 @@ class PlaysController < ApplicationController
 
     respond_to do |format|
       if @play.save
-        format.html { redirect_to @play, notice: 'Play was successfully created.' }
+        format.html { redirect_to game_drive_path(@play.drive.game_id, @play.drive_id), notice: 'Play was successfully created.' }
         format.json { render action: 'show', status: :created, location: @play }
       else
         format.html { render action: 'new' }
@@ -56,7 +57,7 @@ class PlaysController < ApplicationController
   def destroy
     @play.destroy
     respond_to do |format|
-      format.html { redirect_to plays_url }
+      format.html { redirect_to game_drive_path(@play.drive.game_id, @play.drive_id), notice: 'Play was successfully destroyed' }
       format.json { head :no_content }
     end
   end
