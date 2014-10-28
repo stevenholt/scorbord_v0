@@ -86,5 +86,6 @@
 </table>
 
 <%= link_to 'New Play', new_play_path %>
-<%= link_to 'Edit', edit_drive_path(@drive) %> |
+<%= link_to 'Edit', edit_game_drive_path(@drive.game_id, @drive) %> |
+<%= link_to 'Destroy', @drive, method: :delete, data: { confirm: 'Are you sure about that?' } %> |
 <%= link_to 'Back', drives_path %>

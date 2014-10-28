@@ -22,6 +22,7 @@ class DrivesController < ApplicationController
 
   # GET /drives/1/edit
   def edit
+    @game = Game.find( params[:game_id] )
   end
 
   # POST /drives
@@ -59,7 +60,7 @@ class DrivesController < ApplicationController
   def destroy
     @drive.destroy
     respond_to do |format|
-      format.html { redirect_to drives_url }
+      format.html { redirect_to game_path(@drive.game), notice: 'Drive was successfully deleted' }
       format.json { head :no_content }
     end
   end

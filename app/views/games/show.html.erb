@@ -84,7 +84,7 @@ Game Summary
     <% @game.drives.each do |drive| %>
       <tr>
         <td><%= drive.id %></td>
-        <td><%= drive.team_id %></td>
+        <td><%= drive.team.name %></td>
         <td><%= drive.start_time %></td>
         <td><%= drive.end_time %></td>
         <td>
@@ -97,7 +97,7 @@ Game Summary
 </table>
 
 <% @game.drives.each do |drive| %>
-<h4>Drive #<%= drive.id %></h4>
+<h4>Drive #<%= drive.id %> (<%= drive.team.name %>)</h4>
 <table class="table table-striped">
   <thead>
     <tr>
