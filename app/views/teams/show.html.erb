@@ -5,7 +5,7 @@
 <%= link_to 'View Roster', team_team_memberships_path(@team), class:"btn btn-info" %>
 
 <br><br><br><br>
-<h3>Games <%= @team.home_games.count %></h3>
+<h3>Games (<%= @games.count %>)</h3>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -14,21 +14,28 @@
       <th>Home Team</th>
       <th>Away Team</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @team.home_games.each do |game| %>
+    <% @games.each do |game| %>
       <tr>
         <td><%= game.id %></td>
         <td><%= game.date %></td>
         <td><%= game.home_team.name %></td>
         <td><%= game.away_team.name %></td>
         <td><%= link_to 'show', game_path(game.id) %></td>
+        <% if game.home_team == @team %>
+          <td>Home vs. <%= game.away_team.name %></td>
+          <% else %>
+          <td>Away @ <%= game.home_team.name %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= link_to "New Game", new_game_path, class:"btn" %>
 
 <br><br><br><br>
 <h3>Plays</h3>

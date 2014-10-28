@@ -10,6 +10,7 @@ class TeamsController < ApplicationController
   # GET /teams/1
   # GET /teams/1.json
   def show
+    @games = (Game.where("home_team_id = ? OR away_team_id = ?", @team.id, @team.id)).order("date ASC")
   end
 
   def roster
