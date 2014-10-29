@@ -56,7 +56,7 @@ Game Summary
       </tr>
   </thead>
   <tbody>
-      <% ((@game.plays.order(deltayards: :desc)).limit(5)).each do |play|%>
+      <% ((@game.plays.order("deltayards DESC")).limit(5)).each do |play|%>
       <tr>
         <td><%= link_to play.formation, play_path(play) %></td>
         <td><%= play.playcall %></td>
