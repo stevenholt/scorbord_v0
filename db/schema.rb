@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141020235850) do
+ActiveRecord::Schema.define(version: 20141030105755) do
 
   create_table "drives", force: true do |t|
     t.integer  "game_id"
@@ -54,6 +54,22 @@ ActiveRecord::Schema.define(version: 20141020235850) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "drive_id"
+    t.string   "play_type"
+    t.string   "direction"
+    t.boolean  "complete"
+    t.boolean  "penalty"
+    t.string   "penalty_call"
+    t.string   "penalty_against"
+    t.integer  "offender"
+    t.integer  "penalty_yards"
+    t.boolean  "first_down"
+    t.boolean  "fumble_lost"
+    t.boolean  "interception"
+    t.boolean  "touchdown"
+    t.boolean  "sack"
+    t.boolean  "failed_conversion"
+    t.boolean  "fg_good"
+    t.integer  "kick_distance"
   end
 
   create_table "team_games", force: true do |t|

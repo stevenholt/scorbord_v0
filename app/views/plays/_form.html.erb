@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <%= f.input :drive_id,    :as => :hidden, input_html: { value: @drive.id } %>
+  <%= f.input :drive_id,     input_html: { value: @drive.id } %>
   <%= f.input :number,      label: 'Number' %>
   <%= f.input :down,        label: 'Down' %>
   <%= f.input :distance,    label: 'Distance' %>
@@ -19,11 +19,29 @@
   <%= f.input :los,         label: 'Line of Scrimmage' %>
   <%= f.input :formation,   label: 'Formation' %>
   <%= f.input :playcall,    label: 'Playcall' %>
+  <%= f.input :play_type,   label: 'Play Type' %>
+  <%= f.input :direction,   label: 'Direction' %>
   <%= f.input :rusher,      label: 'Rusher' %>
   <%= f.input :passer,      label: 'Passer' %>
   <%= f.input :receiver,    label: 'Receiver' %>
+  <%= f.input :complete,    label: 'Complete?' %>
+  <div style="background-color: #e6e6e6; margin:10px; padding:5px;">
+    <%= f.input :penalty,     label: 'Penalty?' %>
+    <%= f.input :penalty_call,label: 'Penalty Called' %>
+    <%= f.input :penalty_against, label: 'Against' %>
+    <%= f.input :offender,        label: 'Offender' %>
+    <%= f.input :penalty_yards,   label: 'Penalty Yards' %>
+  </div>
   <%= f.input :result,      label: 'Result' %>
   <%= f.input :deltayards,  label: 'Yards' %>
   <%= f.input :comments,    label: 'Comments' %>
+  <%= f.input :first_down,  label: 'First Down?' %>
+  <%= f.input :sack,        label: 'Sack?' %>
+  <%= f.input :touchdown,   label: 'Touchdown?' %>
+  <%= f.input :fumble_lost, label: 'Fumble Lost?' %>
+  <%= f.input :interception,label: 'Interception?' %>
+  <%= f.input :failed_conversion, label: 'Failed Conversion?' %>
+  <%= f.input :fg_good,     label: 'Field Goal Good?' %>
+  <%= f.input :kick_distance,     label: 'Kick Distance' %>
   <%= f.button :submit %>
 <% end %>

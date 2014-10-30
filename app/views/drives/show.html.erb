@@ -25,7 +25,15 @@
 </p>
 <p>
   <strong>Total Yards:</strong>
-  <%= (Play.where('drive_id = ?', @drive.id )).sum("deltayards") %>
+  <%= (@drive.plays).sum("deltayards") %>
+</p>
+<p>
+  <strong>Playcall Mix:</strong>
+  Run: <%= (@drive.plays.where('play_type = ?', 'Run')).count %> / Pass: <%= (@drive.plays.where('play_type = ?', 'Pass')).count %>
+</p>
+<p>
+  <strong>Penalties:</strong>
+  <%= (@drive.plays.where('penalty = ?', true)).count  %>
 </p>
 
 
@@ -70,17 +78,25 @@
         <td colspan="3">
           <div class="btn-group btn-group-xs">
             <%= link_to 'view', game_drive_play_path(@drive.game_id, @drive, play), class:"btn btn-default btn-xs" %>
-            <%= link_to 'edit', edit_play_path(play), class:"btn btn-default btn-xs" %>
+            <%= link_to 'edit', edit_game_drive_play_path(@drive.game_id, @drive, play), class:"btn btn-default btn-xs" %>
             <%= link_to 'delete', play, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-default btn-xs" %>
           </div>
         </td>
       </tr>
+      <% if play.penalty %>
+        <tr>
+          <td colspan="14" style="background-color:yellow">
+            <%= play.penalty_call %> - <%= play.penalty_against %>: <%= play.penalty_yards %> yards, <%= play.result %>
+          </td>
+        </tr>
+      <% else %>
       <tr>
         <td colspan="2"/>
         <td colspan="12">
           <small><%= play.comments if play.comments %></small>
         </td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
@@ -88,4 +104,4 @@
 <%= link_to 'New Play', new_game_drive_play_path(@drive.game_id, @drive) %>
 <%= link_to 'Edit', edit_game_drive_path(@drive.game_id, @drive) %> |
 <%= link_to 'Destroy', @drive, method: :delete, data: { confirm: 'Are you sure about that?' } %> |
-<%= link_to 'Back', drives_path %>
+<%= link_to 'Back to Game', game_path(@drive.game_id) %>

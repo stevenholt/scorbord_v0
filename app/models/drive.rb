@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  game_id    :integer
-#  possession :integer
+#  team_id    :integer
 #  start_time :integer
 #  end_time   :integer
 #  created_at :datetime

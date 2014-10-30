@@ -20,6 +20,7 @@ class PlaysController < ApplicationController
 
   # GET /plays/1/edit
   def edit
+    @drive = Drive.find( params[:drive_id] )
   end
 
   # POST /plays
@@ -43,7 +44,7 @@ class PlaysController < ApplicationController
   def update
     respond_to do |format|
       if @play.update(play_params)
-        format.html { redirect_to @play, notice: 'Play was successfully updated.' }
+        format.html { redirect_to game_drive_path(@play.drive.game_id, @play.drive_id), notice: 'Play was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -70,6 +71,6 @@ class PlaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def play_params
-      params.require(:play).permit(:drive_id, :number, :down, :distance, :hashmark, :los, :formation, :playcall, :rusher, :passer, :receiver, :result, :deltayards, :comments)
+      params.require(:play).permit(:drive_id, :number, :down, :distance, :hashmark, :los, :formation, :playcall, :rusher, :passer, :receiver, :result, :deltayards, :comments, :play_type, :direction, :complete, :penalty, :penalty_call, :penalty_against, :offender, :penalty_yards, :first_down, :fumble_lost, :interception, :touchdown, :sack, :failed_conversion, :fg_good, :kick_distance)
     end
 end

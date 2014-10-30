@@ -2,12 +2,12 @@
 #
 # Table name: games
 #
-#  id         :integer          not null, primary key
-#  date       :date
-#  home_team  :integer
-#  away_team  :integer
-#  created_at :datetime
-#  updated_at :datetime
+#  id           :integer          not null, primary key
+#  date         :date
+#  home_team_id :integer
+#  away_team_id :integer
+#  created_at   :datetime
+#  updated_at   :datetime
 #
 
 require 'spec_helper'
